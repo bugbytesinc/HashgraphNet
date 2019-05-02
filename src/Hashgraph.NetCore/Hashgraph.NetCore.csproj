@@ -1,0 +1,19 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <TargetFramework>netcoreapp3.0</TargetFramework>
+    <RootNamespace>Hashgraph.NetCore</RootNamespace>
+    <NullableContextOptions>enable</NullableContextOptions>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <PackageReference Include="Google.Protobuf" Version="3.7.0" />
+    <PackageReference Include="Grpc.Core" Version="1.20.0" />
+    <PackageReference Include="NSec.Cryptography" Version="19.4.0-preview2" />
+  </ItemGroup>  
+
+  <ItemGroup>
+    <ProjectReference Include="..\Hashgraph.NetCore.Proto\Hashgraph.NetCore.Proto.csproj" />
+  </ItemGroup>
+
+</Project>
