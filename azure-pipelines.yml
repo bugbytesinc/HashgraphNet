@@ -1,0 +1,44 @@
+pool:
+  name: Default
+
+variables:
+  buildConfiguration: 'Release'
+  Build.ArtifactStagingDirectory: 'publish'
+
+steps:
+- task: DotNetCoreInstaller@0
+  inputs:
+    version: '3.0.100-preview4-011223' # Need .net core 3 or greater to support protobuf
+    
+- task: DotNetCoreCLI@2
+  displayName: Restore
+  inputs:
+    command: restore
+    projects: '**/*.csproj'
+
+- task: DotNetCoreCLI@2
+  displayName: Build
+  inputs:
+    projects: '**/*.csproj'
+    arguments: '--configuration $(buildConfiguration)'
+
+- task: DotNetCoreCLI@2
+  displayName: Test
+  inputs:
+    command: test
+    projects: 'test/**/*.csproj'
+    arguments: '--configuration $(buildConfiguration)'
+
+- task: DotNetCoreCLI@2
+  displayName: Publish
+  inputs:
+    command: publish
+    projects: src/**/*.csproj
+    arguments: '--configuration $(buildConfiguration) --output $(Build.ArtifactStagingDirectory)'
+    zipAfterPublish: True
+
+- task: PublishBuildArtifacts@1
+  displayName: 'Publish Artifact'
+  inputs:
+    PathtoPublish: '$(Build.ArtifactStagingDirectory)'
+  condition: succeededOrFailed()
