@@ -1,0 +1,24 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <TargetFramework>netcoreapp3.0</TargetFramework>
+    <RootNamespace>Hashgraph.NetCore.Proto</RootNamespace>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <PackageReference Include="Google.Protobuf" Version="3.7.0" />
+    <PackageReference Include="Grpc.Core" Version="1.20.0" />
+    <PackageReference Include="Grpc.Tools" Version="1.20.0">
+      <PrivateAssets>all</PrivateAssets>
+      <IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
+    </PackageReference>
+    <PackageReference Include="NSec.Cryptography" Version="19.4.0-preview2" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Protobuf Include="..\..\reference\hedera-protobuf\src\main\proto\*.proto" LinkBase="Hedera" GrpcServices="Client">
+      <Link>Proto\%(RecursiveDir)%(Filename)%(Extension)</Link>
+    </Protobuf>
+  </ItemGroup>
+  
+</Project>
