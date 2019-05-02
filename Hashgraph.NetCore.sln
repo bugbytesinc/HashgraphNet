@@ -9,6 +9,8 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Hashgraph.NetCore", "src\Ha
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Hashgraph.NetCore.Test", "test\Hashgraph.NetCore.Test\Hashgraph.NetCore.Test.csproj", "{F6FD8758-BF27-4BEE-A68E-75382E626DBE}"
 EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Hashgraph.NetCore.Web", "examples\Hashgraph.NetCore.Web\Hashgraph.NetCore.Web.csproj", "{D56556C8-3AB5-4E70-9A13-A12C8985C4AE}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -27,6 +29,10 @@ Global
 		{F6FD8758-BF27-4BEE-A68E-75382E626DBE}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{F6FD8758-BF27-4BEE-A68E-75382E626DBE}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{F6FD8758-BF27-4BEE-A68E-75382E626DBE}.Release|Any CPU.Build.0 = Release|Any CPU
+		{D56556C8-3AB5-4E70-9A13-A12C8985C4AE}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{D56556C8-3AB5-4E70-9A13-A12C8985C4AE}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{D56556C8-3AB5-4E70-9A13-A12C8985C4AE}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{D56556C8-3AB5-4E70-9A13-A12C8985C4AE}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
