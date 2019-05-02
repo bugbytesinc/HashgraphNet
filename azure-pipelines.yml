@@ -17,14 +17,6 @@ steps:
   inputs:
     version: '3.0.100-preview4-011223' # Need .net core 3 or greater to support protobuf
 
-- script: |
-    '##vso[task.setvariable variable=network:address]$(test:network:address)'
-    '##vso[task.setvariable variable=network:port]$(test:network:port)'
-    '##vso[task.setvariable variable=server:number]$(test:server:number)'
-    '##vso[task.setvariable variable=account:number]$(test:account:number)'
-    '##vso[task.setvariable variable=account:publicKey]$(test:account:publicKey)'
-    '##vso[task.setvariable variable=account:privateKey]$(test:account:privateKey)'
-
 - task: DotNetCoreCLI@2
   displayName: Restore
   inputs:
@@ -44,6 +36,13 @@ steps:
     projects: 'test/**/*.csproj'
     arguments: '--configuration $(buildConfiguration)'
     publishTestResults: true
+  env:
+    'network:address': $(test:network:address)
+    'network:port': $(test:network:port)
+    'server:number': $(test:server:number)
+    'account:number': $(test:account:number)
+    'account:publicKey': $(test:account:publicKey)
+    'account:privateKey': $(test:account:privateKey)
 
 - task: DotNetCoreCLI@2
   displayName: Publish
