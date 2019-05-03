@@ -2,6 +2,7 @@
 #
 #  buildConfiguration:             Build Configuration Type, for example 'Release'
 #  Build.ArtifactStagingDirectory: Directory to stage artifact assembly.
+#  BuildId:                        Imutable ID for this build (incorporated into version stamp)
 #  nugetConnection:                Nuget Publishing Service Connection Name.
 #  test:network:address:           Test Network DNS name, for example 'testnet.hedera.com'
 #  test:network:port:              Test Network port number
@@ -48,7 +49,7 @@ steps:
   inputs:
     command: pack
     projects: src/**/*.csproj
-    arguments: '--configuration $(buildConfiguration) --output $(Build.ArtifactStagingDirectory)'
+    arguments: '--configuration $(buildConfiguration) --output $(Build.ArtifactStagingDirectory) --version-suffix $(BuildId)'
 
 - task: PublishBuildArtifacts@1
   displayName: 'Artifacts'
