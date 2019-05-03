@@ -2,7 +2,6 @@
 #
 #  buildConfiguration:             Build Configuration Type, for example 'Release'
 #  Build.ArtifactStagingDirectory: Directory to stage artifact assembly.
-#  BuildId:                        Imutable ID for this build (incorporated into version stamp)
 #  nugetConnection:                Nuget Publishing Service Connection Name.
 #  test:network:address:           Test Network DNS name, for example 'testnet.hedera.com'
 #  test:network:port:              Test Network port number
@@ -13,27 +12,29 @@
 
 steps:
 - task: DotNetCoreInstaller@0
-  displayName: 'Ensure .Net Core 3'
+  displayName: 'Ensure .Net Core 3'  
   inputs:
     version: '3.0.100-preview4-011223' # Need .net core 3 or greater to support protobuf
 
 - task: DotNetCoreCLI@2
-  displayName: Restore
+  displayName: Restore Dependencies  
   inputs:
     command: restore
     projects: '**/*.csproj'
 
 - task: DotNetCoreCLI@2
-  displayName: Build
+  displayName: Build Projects  
   inputs:
+    command: build
     projects: '**/*.csproj'
     arguments: '--configuration $(buildConfiguration)'
 
 - task: DotNetCoreCLI@2
-  displayName: Test
+  displayName: Run Automated Tests  
   inputs:
     command: test
     projects: 'test/**/*.csproj'
+    nobuild: true
     arguments: '--configuration $(buildConfiguration)'
     publishTestResults: true
   env:
@@ -45,22 +46,23 @@ steps:
     'account:privateKey': $(test:account:privateKey)
 
 - task: DotNetCoreCLI@2
-  displayName: Pack
+  displayName: Create NuGet Packages  
   inputs:
     command: pack
     projects: src/**/*.csproj
-    arguments: '--configuration $(buildConfiguration) --output $(Build.ArtifactStagingDirectory) --version-suffix $(BuildId)'
+    nobuild: true
+    arguments: '--configuration $(buildConfiguration) --output $(Build.ArtifactStagingDirectory)'
 
-- task: PublishBuildArtifacts@1
-  displayName: 'Artifacts'
+- task: PublishBuildArtifacts@1  
+  displayName: Save Package Artifacts  
   inputs:
     artifactName: packages
     pathtoPublish: '$(Build.ArtifactStagingDirectory)'
 
 - task: NuGetCommand@2
-  displayName: Publish
+  displayName: Publish NugGet Packages  
+  condition: and(succeeded(), eq(variables['Build.SourceBranch'], 'refs/heads/master'))
   inputs:
     command: push
     nuGetFeedType: external
     publishFeedCredentials: $(nugetConnection)
-    condition: and(succeeded(), eq(variables['Build.SourceBranch'], 'refs/heads/master'))
