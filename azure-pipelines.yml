@@ -2,6 +2,7 @@
 #
 #  buildConfiguration:             Build Configuration Type, for example 'Release'
 #  Build.ArtifactStagingDirectory: Directory to stage artifact assembly.
+#  nugetConnection:                Nuget Publishing Service Connection Name.
 #  test:network:address:           Test Network DNS name, for example 'testnet.hedera.com'
 #  test:network:port:              Test Network port number
 #  test:server:number:             Network Node Address Number receiving Network Requests (assumes Realm = 0, Shard = 0)
@@ -45,15 +46,21 @@ steps:
     'account:privateKey': $(test:account:privateKey)
 
 - task: DotNetCoreCLI@2
-  displayName: Publish
+  displayName: Pack
   inputs:
-    command: publish
+    command: pack
     projects: src/**/*.csproj
     arguments: '--configuration $(buildConfiguration) --output $(Build.ArtifactStagingDirectory)'
-    zipAfterPublish: True
 
 - task: PublishBuildArtifacts@1
-  displayName: 'Publish Artifact'
+  displayName: 'Artifacts'
   inputs:
-    PathtoPublish: '$(Build.ArtifactStagingDirectory)'
-  condition: succeededOrFailed()
+    artifactName: packages
+    pathtoPublish: '$(Build.ArtifactStagingDirectory)'
+
+- task: NuGetCommand@2
+  displayName: Publish
+  inputs:
+    command: push
+    nuGetFeedType: external
+    publishFeedCredentials: $(nugetConnection)

@@ -4,6 +4,20 @@
     <TargetFramework>netcoreapp3.0</TargetFramework>
     <RootNamespace>Hashgraph.NetCore</RootNamespace>
     <NullableContextOptions>enable</NullableContextOptions>
+    <GeneratePackageOnBuild>false</GeneratePackageOnBuild>
+    <PackageRequireLicenseAcceptance>true</PackageRequireLicenseAcceptance>
+    <Version>0.1.0-alpha.1</Version>
+    <Authors>BugBytes, Inc.</Authors>
+    <Company>BugBytes, Inc.</Company>
+    <Description>.NET Core Client Library for Hedera Hashgraph</Description>
+    <Copyright>Copyright 2019 BugBytes, Inc. All Rights Reserved.</Copyright>
+    <PackageLicenseFile></PackageLicenseFile>
+    <PackageProjectUrl>https://github.com/bugbytesinc/HashgraphNet</PackageProjectUrl>
+    <RepositoryUrl>https://github.com/bugbytesinc/HashgraphNet.git</RepositoryUrl>
+    <PackageTags>Hedera Hashgraph</PackageTags>
+    <PackageLicenseExpression>Apache-2.0</PackageLicenseExpression>
+    <RepositoryType>GitHub</RepositoryType>
+    <PackageReleaseNotes />
   </PropertyGroup>
 
   <ItemGroup>
