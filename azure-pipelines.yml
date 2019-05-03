@@ -15,6 +15,7 @@ pool:
 
 steps:
 - task: DotNetCoreInstaller@0
+  displayName: 'Ensure .Net Core 3'
   inputs:
     version: '3.0.100-preview4-011223' # Need .net core 3 or greater to support protobuf
 

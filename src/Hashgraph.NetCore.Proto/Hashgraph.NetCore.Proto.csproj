@@ -3,7 +3,7 @@
   <PropertyGroup>
     <TargetFramework>netcoreapp3.0</TargetFramework>
     <RootNamespace>Hashgraph.NetCore.Proto</RootNamespace>
-    <Version>0.1.0-alpha.1</Version>
+    <Version>0.1.0-alpha.2</Version>
     <Description>Hedera Hashgraph .Net Core Protobuf Support Library</Description>
     <PackageLicenseFile></PackageLicenseFile>
     <PackageLicenseExpression>Apache-2.0</PackageLicenseExpression>
@@ -13,6 +13,7 @@
     <RepositoryUrl>https://github.com/bugbytesinc/HashgraphNet.git</RepositoryUrl>
     <RepositoryType>GitHub</RepositoryType>
     <PackageTags>Hedera Hashgraph Protobuf</PackageTags>
+    <PackageIconUrl>https://raw.githubusercontent.com/bugbytesinc/HashgraphNet/master/logo.png</PackageIconUrl>
   </PropertyGroup>
 
   <ItemGroup>
