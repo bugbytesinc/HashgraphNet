@@ -4,6 +4,10 @@
 ## Build Status
 [![Build Status](https://bugbytes.visualstudio.com/HashgrapNet/_apis/build/status/HashgrapNet%20Continuous%20Build?branchName=master)](https://bugbytes.visualstudio.com/HashgrapNet/_build/latest?definitionId=27&branchName=master)
 
+## Contributing
+While we are in the process of building the preliminary infrastructure for this project, please direct any feedback, requests or questions to  [Hedera’s Discord](https://discordapp.com/invite/FFb9YFX) channel.
+
+
 ## Cloning
 This project references the [Hedera Protobuf](https://github.com/hashgraph/hedera-protobuf) 
 project as a git submodule.  It is recommended to include ```--recurse-submodules``` options 
