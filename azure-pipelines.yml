@@ -65,3 +65,4 @@ steps:
     command: push
     nuGetFeedType: external
     publishFeedCredentials: $(nugetConnection)
+    condition: and(succeeded(), eq(variables['Build.SourceBranch'], 'refs/heads/master'))
