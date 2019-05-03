@@ -1,5 +1,6 @@
 #  Required Variables set by external Pipeline Configuration
 #
+#  Agent.Name:                     Name of the Pool executing the build process.
 #  buildConfiguration:             Build Configuration Type, for example 'Release'
 #  Build.ArtifactStagingDirectory: Directory to stage artifact assembly.
 #  nugetConnection:                Nuget Publishing Service Connection Name.
@@ -11,7 +12,7 @@
 #  test:account:privateKey:        Private Key of test account making requests of the network, encoded in Hex
 
 pool:
-  name: Default
+  name: $(Agent.Name)
 
 steps:
 - task: DotNetCoreInstaller@0
