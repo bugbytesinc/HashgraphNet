@@ -3,7 +3,7 @@
   <PropertyGroup>
     <TargetFramework>netcoreapp3.0</TargetFramework>
     <RootNamespace>Hashgraph.NetCore.Proto</RootNamespace>
-    <Version>0.1.0-alpha.3</Version>
+    <Version>0.1.0-alpha.4</Version>
     <Description>Hedera Hashgraph .Net Core Protobuf Support Library</Description>
     <PackageLicenseFile></PackageLicenseFile>
     <PackageLicenseExpression>Apache-2.0</PackageLicenseExpression>

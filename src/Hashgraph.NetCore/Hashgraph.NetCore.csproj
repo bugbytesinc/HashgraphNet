@@ -6,7 +6,7 @@
     <NullableContextOptions>enable</NullableContextOptions>
     <GeneratePackageOnBuild>false</GeneratePackageOnBuild>
     <PackageRequireLicenseAcceptance>true</PackageRequireLicenseAcceptance>
-    <Version>0.1.0-alpha.3</Version>
+    <Version>0.1.0-alpha.4</Version>
     <Authors>BugBytes, Inc.</Authors>
     <Company>BugBytes, Inc.</Company>
     <Description>.NET Core Client Library for Hedera Hashgraph</Description>
