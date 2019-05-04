@@ -1,3 +1,5 @@
+Please note, we changed the location of this project going forward it is now located at [Hashgraph](https://github.com/bugbytesinc/Hashgraph).  The NuGet package is [Here](https://www.nuget.org/packages/Hashgraph/)
+
 # HashgraphNet
 .NET Core Client Library for Hedera Hashgraph
 
